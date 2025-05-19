@@ -1,6 +1,6 @@
 --[[
 
-	Rayfield Interface Suite
+	Rayfield⁸ Interface Suite
 	by Sirius
 
 	shlex | Designing + Programming
@@ -8,6 +8,21 @@
 	Max   | Programming
 
 ]]
+
+-- Rainbow UI enhancement for Rayfield
+
+-- 무지개 색 순환 함수 local function RainbowColorShift(speed) local t = tick() * speed local r = math.sin(t) * 127 + 128 local g = math.sin(t + 2) * 127 + 128 local b = math.sin(t + 4) * 127 + 128 return Color3.fromRGB(r, g, b) end
+
+-- UI 테두리 무지개 효과 및 배경 투명도 설정 -- 인터페이스가 완전히 로드된 후 실행해야 함 task.spawn(function() while not Rayfield or not Rayfield.Main do task.wait() end
+
+while true do
+    local rainbow = RainbowColorShift(2)
+    for _, element in ipairs(Rayfield.Main:GetDescendants()) do
+        if element:IsA("UIStroke") then
+            element.Color = rainbow
+
+
+
 
 if debugX then
 	warn('Initialising Rayfield')
